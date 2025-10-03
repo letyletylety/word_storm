@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:word_storm_drift/database/database.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final database = AppDatabase(AppDatabase.openConnection());
+
+  runApp(
+    Provider(
+      create: (BuildContext context) {
+        return database;
+      },
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

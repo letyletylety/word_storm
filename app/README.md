@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+## architecture
+
+[flutter arch docs](https://docs.flutter.dev/app-architecture/case-study)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
