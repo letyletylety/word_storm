@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'models.dart';
+part of 'puzzle_board.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
@@ -21,6 +21,13 @@ class _$PuzzleBoardSerializer implements StructuredSerializer<PuzzleBoard> {
     FullType specifiedType = FullType.unspecified,
   }) {
     final result = <Object?>[
+      'gridCells',
+      serializers.serialize(
+        object.gridCells,
+        specifiedType: const FullType(BuiltList, const [
+          const FullType(GridCell),
+        ]),
+      ),
       'gridLetters',
       serializers.serialize(
         object.gridLetters,
@@ -57,6 +64,17 @@ class _$PuzzleBoardSerializer implements StructuredSerializer<PuzzleBoard> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'gridCells':
+          result.gridCells.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(GridCell),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
+          break;
         case 'gridLetters':
           result.gridLetters.replace(
             serializers.deserialize(
@@ -99,6 +117,8 @@ class _$PuzzleBoardSerializer implements StructuredSerializer<PuzzleBoard> {
 
 class _$PuzzleBoard extends PuzzleBoard {
   @override
+  final BuiltList<GridCell> gridCells;
+  @override
   final BuiltList<String> gridLetters;
   @override
   final BuiltSet<String> validWords;
@@ -109,6 +129,7 @@ class _$PuzzleBoard extends PuzzleBoard {
       (PuzzleBoardBuilder()..update(updates))._build();
 
   _$PuzzleBoard._({
+    required this.gridCells,
     required this.gridLetters,
     required this.validWords,
     required this.foundWords,
@@ -124,6 +145,7 @@ class _$PuzzleBoard extends PuzzleBoard {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is PuzzleBoard &&
+        gridCells == other.gridCells &&
         gridLetters == other.gridLetters &&
         validWords == other.validWords &&
         foundWords == other.foundWords;
@@ -132,6 +154,7 @@ class _$PuzzleBoard extends PuzzleBoard {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, gridCells.hashCode);
     _$hash = $jc(_$hash, gridLetters.hashCode);
     _$hash = $jc(_$hash, validWords.hashCode);
     _$hash = $jc(_$hash, foundWords.hashCode);
@@ -142,6 +165,7 @@ class _$PuzzleBoard extends PuzzleBoard {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'PuzzleBoard')
+          ..add('gridCells', gridCells)
           ..add('gridLetters', gridLetters)
           ..add('validWords', validWords)
           ..add('foundWords', foundWords))
@@ -151,6 +175,12 @@ class _$PuzzleBoard extends PuzzleBoard {
 
 class PuzzleBoardBuilder implements Builder<PuzzleBoard, PuzzleBoardBuilder> {
   _$PuzzleBoard? _$v;
+
+  ListBuilder<GridCell>? _gridCells;
+  ListBuilder<GridCell> get gridCells =>
+      _$this._gridCells ??= ListBuilder<GridCell>();
+  set gridCells(ListBuilder<GridCell>? gridCells) =>
+      _$this._gridCells = gridCells;
 
   ListBuilder<String>? _gridLetters;
   ListBuilder<String> get gridLetters =>
@@ -175,6 +205,7 @@ class PuzzleBoardBuilder implements Builder<PuzzleBoard, PuzzleBoardBuilder> {
   PuzzleBoardBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _gridCells = $v.gridCells.toBuilder();
       _gridLetters = $v.gridLetters.toBuilder();
       _validWords = $v.validWords.toBuilder();
       _foundWords = $v.foundWords.toBuilder();
@@ -202,6 +233,7 @@ class PuzzleBoardBuilder implements Builder<PuzzleBoard, PuzzleBoardBuilder> {
       _$result =
           _$v ??
           _$PuzzleBoard._(
+            gridCells: gridCells.build(),
             gridLetters: gridLetters.build(),
             validWords: validWords.build(),
             foundWords: foundWords.build(),
@@ -209,6 +241,8 @@ class PuzzleBoardBuilder implements Builder<PuzzleBoard, PuzzleBoardBuilder> {
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'gridCells';
+        gridCells.build();
         _$failedField = 'gridLetters';
         gridLetters.build();
         _$failedField = 'validWords';
